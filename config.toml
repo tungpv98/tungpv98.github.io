@@ -2,7 +2,7 @@
 # Site configuration
 # Icon: https://RemixIcon.com/
 
-baseURL = "https://tungpv98.github.io/"
+baseURL = "https://tungpv98.github.io/public/"
 title = "Tung's Blog"
 languageCode = "en"
 defaultContentLanguage = "en"
