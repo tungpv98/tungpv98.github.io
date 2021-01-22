@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/remixicon/remixicon.css"><link rel="stylesheet" href="/css/tony.min.5e6e21dfb213ef15aa56b237667adec0ec9bd1278173197eab9021c317f73b0c.css" integrity="sha256-Xm4h37IT7xWqVrI3ZnrewOyb0SeBcxl+q5Ahwxf3Oww="/>
+
+    <link rel="shortcut icon" href="/images/avatar.png" type="image/x-icon" />
+    <title>Export file pdf từ html trong ứng dụng Rails</title>
+
+    <meta name="author" content="gnuT_98" /><meta name="description" content="" />
+
+    
+    <link rel="canonical" href="https://tungpv98.github.io/posts/export_file_pdf_from_html_in_rails/" /><head>
+    
+  
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Fira+Code:400,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+</head>
+
+</head>
+
+    <header id="header-div" class="tony-header-fixed">
+
+    <div class="header-div1">
+        <a href="https://tungpv98.github.io/" style="display:inline-block;">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="header-div2">
+    <a href="/"><button class="btn btn-light">Home</button></a>
+    <a href="/about/"><button class="btn btn-light">About</button></a>
+    
+</div>
+</header>
+    <body>
+        
+    <div id="post-container">
+    <div class="grid grid-centered">
+        <div id="grid-cell" class="grid-cell">
+            
+                <div class="single-left">
+                    
+        
+        
+        
+        
+            
+            
+            
+            <div class="index-div">
+                <div class="single-index">
+                    <h4>
+                        <i class="ri-list-check-2"></i>
+                        TOC
+                    </h4>
+                </div>  
+                <ul id="article-index" class="index-ul">
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%e1%ba%a1o-%e1%bb%a9ng-d%e1%bb%a5ng-rails">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tạo ứng dụng Rails
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%e1%ba%a1o-controller-and-view">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tạo controller and view
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%c3%adch-h%e1%bb%a3p-ch%e1%bb%a9c-n%c4%83ng-export-pdf">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tích hợp chức năng export Pdf
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#th%c3%aam-c%c3%a1c-gem-v%c3%a0o-gem-file">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Thêm các gem vào gem file
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%e1%ba%a1o-m%e1%bb%99t-class-invoicepdf-trong-th%c6%b0-m%e1%bb%a5c-appmodels">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tạo một class InvoicePdf trong thư mục app/models
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%e1%ba%a1o-downloadscontroller-%c4%91%e1%bb%83-render-h%c3%b3a-%c4%91%c6%a1n-pdf">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tạo DownloadsController để Render hóa đơn PDF
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%c3%a0i-li%e1%bb%87u-tham-kh%e1%ba%a3o">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tài liệu tham khảo
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                </ul>
+            </div>
+        
+                    
+
+
+
+
+    
+        <div>
+            <div class="index-div-prev">
+                <h4>Newer</h4>
+                <p>
+                    <a href="/posts/hello-world/" rel="next">Tích hợp "Mod Security" cho Web Application Server để chống lại SQL Injection và tấn công XSS</a>
+                </p>
+            </div>
+        </div>
+    
+    
+        <div>
+            <div class="index-div-next">
+                <h4>Older</h4>
+                <p>
+                    <a href="/about/" rel="prev">About</a>
+                </p>
+            </div>
+        </div>
+    
+
+                </div>
+            
+            
+                <div id="reading-bar"></div>
+            
+            <article class="article reveal">
+                <div id="load">
+                    <div class="article-header">
+                        
+<span title="预计阅读时长" class="badge badge-pill badge-danger single-badge post-header">
+    4 mins
+</span>
+<h2 class="single-h2">Export file pdf từ html trong ứng dụng Rails</h2>
+<div class="article-list-footer">
+    <span class="article-list-date">22-01-21</span>
+    <span class="article-list-divider">/</span>
+    <span class="article-list-minutes">742 Words</span>
+</div>
+<div class="single-line"></div>
+                    </div>
+                    <div class="article-content">
+                        <p>Pdf là một trong những định dạng phổ biến hiện nay, với ưu điểm là chất lượng cao và không dễ bị thay đổi font chữ hay bố cục của nội dung. Vì thế pdf thường xuyên được sử dụng để lưu trữ những nội dung sau khi đã hoàn thiện và dùng chúng để trao đổi qua mạng. Trong một số website nhiều tác vụ cũng cần đến việc lưu trữ thành định dạng pdf để thuận tiện cho việc lưu trữ lại của người dùng, vì thế hôm nay mình viết bài viết này để tạo một website đơn giản bằng Ruby on Rails có tích hợp tính năng xuất file pdf từ thông tin của trang web với gem PDFKit !!!</p>
+<h1 id="tạo-ứng-dụng-rails">Tạo ứng dụng Rails</h1>
+<p>Tạo một ứng dụng với tên là invoices (hóa đơn) và thêm 2 models:</p>
+<pre><code>$ rails new invoices -d mysql
+$ cd invoices
+ 
+$ rails generate model invoice date:date client notes total
+$ rails generate model line_item description price:float invoice:references
+</code></pre><p>sau đó thêm một số dữ liệu mẫu vào cơ sở dữ liệu bằng cách thêm vào file <code>db/seeds.rb.</code></p>
+<pre><code>invoice = Invoice.create(
+  client: 'Tùng Phan',
+  total: 165000,
+  date: Date.new(2020, 2, 17))
+
+LineItem.create([
+  { invoice_id: invoice.id, description: 'Tuổi trẻ đáng giá bao nhiêu???', price: 96000 },
+  { invoice_id: invoice.id, description: 'Mắt Biếc (Tái Bản 2019)', price: 69000} ])
+</code></pre><p>Chạy lệnh rails db:seed trong terminal để thêm hóa đơn mẫu vào cơ sở dữ liệu.</p>
+<h3 id="tạo-controller-and-view">Tạo controller and view</h3>
+<p>chạy lệnh <code>rails generate controller Invoices index show</code>để tạo controllers và views.</p>
+<p><em><strong>app/models/invoice.rb</strong></em></p>
+<pre><code>class Invoice &lt; ApplicationRecord
+  has_many :line_items
+end
+</code></pre><p><em><strong>app/models/line_item.rb</strong></em></p>
+<pre><code>class LineItem &lt; ApplicationRecord
+  belongs_to :invoice
+end
+</code></pre><p><em><strong>app/controllers/invoicescontroller.rb</strong></em></p>
+<pre><code> class InvoicesController &lt; ApplicationController
+  def index
+    @invoices = Invoice.all
+  end
+ 
+  def show
+    @invoice = Invoice.find(params[:id])
+  end
+end
+</code></pre><p><em><strong>app/views/invoices/index.html.erb</strong></em></p>
+<pre><code>&lt;h1&gt;HÓA ĐƠN&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;% @invoices.each do |invoice| %&gt;
+  &lt;li&gt;
+    &lt;%= link_to &quot;#{invoice.id} - #{invoice.client} - #{invoice.date.strftime(&quot;%B %d, %Y&quot;)} &quot;, invoice_path(invoice) %&gt;
+  &lt;/li&gt;
+  &lt;% end %&gt;
+&lt;/ul&gt;
+</code></pre><p><em><strong>app/views/invoices/show.html.erb</strong></em></p>
+<pre><code>&lt;div class=&quot;invoice&quot;&gt;
+  &lt;h1&gt;CHI TIẾT HÓA ĐƠN&lt;/h1&gt;
+
+  &lt;h3&gt;KHÁCH HÀNG: &lt;%= @invoice.client %&gt;&lt;/h3&gt;
+  &lt;h3&gt;NGÀY: &lt;%= @invoice.date.strftime(&quot;%B %d, %Y&quot;) %&gt;&lt;/h3&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;TÊN SÁCH&lt;/th&gt;
+          &lt;th&gt;GIÁ&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;% @invoice.line_items.each do |line_item| %&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;%= line_item.description %&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;%= number_to_currency(line_item.price) %&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;% end %&gt;
+        &lt;tr class=&quot;total&quot;&gt;
+          &lt;td style=&quot;text-align: right&quot;&gt;THÀNH TIỀN: &lt;/td&gt;
+          &lt;td&gt;&lt;%= number_to_currency(@invoice.total) %&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;% if @invoice.notes %&gt;
+  &lt;div class=&quot;notes&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;LƯU Ý:&lt;/strong&gt; &lt;%= @invoice.notes %&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;% end %&gt;
+&lt;/div&gt;
+
+</code></pre><p><em><strong>app/assets/stylesheets/application.scss</strong></em></p>
+<pre><code>.invoice {
+  width: 700px;
+  max-width: 700px;
+  border: 1px solid grey;
+  margin: 50px;
+  padding: 50px;
+ 
+  h1 {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  .notes {
+    margin-top: 100px;
+  }
+ 
+  table {
+    width: 90%;
+    text-align: left;
+  }
+  th {
+    padding-bottom: 15px;
+  }
+ 
+  .total td {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 25px;
+  }
+}
+</code></pre><p>Sau đó <code>rails s</code> và truy cập vào <code>localhost:3000</code> và vào xem chi tiết hóa đơn</p>
+<p><img src="https://images.viblo.asia/a2777314-cc74-4c3a-919d-ef77f04a1cbd.PNG" alt=""></p>
+<p>Chi tiết hóa đơn</p>
+<p><img src="https://images.viblo.asia/03a6eca3-6e49-4299-84d9-343dc6ac425e.PNG" alt=""></p>
+<h1 id="tích-hợp-chức-năng-export-pdf">Tích hợp chức năng export Pdf</h1>
+<h3 id="thêm-các-gem-vào-gem-file">Thêm các gem vào gem file</h3>
+<pre><code>gem 'pdfkit'
+gem 'render_anywhere'
+gem 'wkhtmltopdf-binary'
+</code></pre><p>Sau đó chạy lệnh <code>bundle install</code> để cài đặt các gem vừa thêm vào</p>
+<h3 id="tạo-một-class-invoicepdf-trong-thư-mục-appmodels">Tạo một class InvoicePdf trong thư mục app/models</h3>
+<p><em><strong>app/models/Invoice_pdf.rb</strong></em></p>
+<pre><code>require &quot;render_anywhere&quot;
+ 
+class InvoicePdf
+  include RenderAnywhere
+ 
+  def initialize(invoice)
+    @invoice = invoice
+  end
+ 
+  def to_pdf
+    kit = PDFKit.new(as_html, page_size: 'A4')
+    kit.to_file(&quot;#{Rails.root}/public/invoice.pdf&quot;)
+  end
+ 
+  def filename
+    &quot;Invoice #{invoice.id}.pdf&quot;
+  end
+ 
+  private
+ 
+    attr_reader :invoice
+ 
+    def as_html
+      render template: &quot;invoices/pdf&quot;, layout: &quot;invoice_pdf&quot;, locals: { invoice: invoice }
+    end
+end
+</code></pre><p><em><strong>app/views/invoices/pdf.html.erb</strong></em></p>
+<pre><code>&lt;div class=&quot;invoice&quot;&gt;
+  &lt;h1&gt;CHI TIẾT HÓA ĐƠN&lt;/h1&gt;
+ 
+  &lt;h3&gt;To: &lt;%= invoice.client %&gt;&lt;/h3&gt;
+  &lt;h3&gt;Date: &lt;%= invoice.date.strftime(&quot;%B %d, %Y&quot;) %&gt;&lt;/h3&gt;
+ 
+  &lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;TÊN SÁCH&lt;/th&gt;
+          &lt;th&gt;GIÁ&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;% invoice.line_items.each do |line_item| %&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;%= line_item.description %&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;%= number_to_currency(line_item.price) %&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;% end %&gt;
+        &lt;tr class=&quot;total&quot;&gt;
+          &lt;td style=&quot;text-align: right&quot;&gt;Total: &lt;/td&gt;
+          &lt;td&gt;&lt;%= number_to_currency(invoice.total) %&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+  &lt;/table&gt;
+ 
+  &lt;% if invoice.notes %&gt;
+  &lt;div class=&quot;notes&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;LƯU Ý:&lt;/strong&gt; &lt;%= invoice.notes %&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;% end %&gt;
+&lt;/div&gt;
+</code></pre><p><em><strong>app/views/layouts/invoice_pdf.html.erb</strong></em></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Envato Invoices&lt;/title&gt;
+  &lt;style&gt;
+    &lt;%= Rails.application.assets.find_asset('application.scss').to_s %&gt;
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;%= yield %&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="tạo-downloadscontroller-để-render-hóa-đơn-pdf">Tạo DownloadsController để Render hóa đơn PDF</h3>
+<p><code>config/routes.rb</code></p>
+<pre><code>Rails.application.routes.draw do
+  root to: &quot;invoices#index&quot;
+ 
+  resources :invoices, only: [:index, :show] do
+    resource :download, only: [:show]
+  end
+end
+</code></pre><p><em><strong>app/controllers/downloadscontroller.rb</strong></em></p>
+<pre><code>class DownloadsController &lt; ApplicationController
+ 
+  def show
+    respond_to do |format|
+      format.pdf { send_invoice_pdf }
+    end
+  end
+ 
+  private
+ 
+  def invoice_pdf
+    invoice = Invoice.find(params[:invoice_id])
+    InvoicePdf.new(invoice)
+  end
+ 
+  def send_invoice_pdf
+    send_file invoice_pdf.to_pdf,
+      filename: invoice_pdf.filename,
+      type: &quot;application/pdf&quot;,
+      disposition: &quot;inline&quot;
+  end
+end
+</code></pre><p>Thêm link download pdf vào hóa đơn : <code>app/views/invoices/show.html.erb</code></p>
+<pre><code>&lt;%= link_to &quot;Download PDF&quot;,
+  invoice_download_path(@invoice, format: &quot;pdf&quot;),
+  target: &quot;_blank&quot;,
+  class: &quot;download&quot; %&gt;
+</code></pre><p>Chạy <code>rails s</code> chuyển đến hóa đơn chi tiết, click vào <code>Download PDF</code>một tab mới sẽ hiện file pdf hóa đơn!!!</p>
+<h2 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h2>
+<p><a href="https://www.pdftron.com/blog/rails/how-to-generate-pdf-with-ruby-on-rails/">https://www.pdftron.com/blog/rails/how-to-generate-pdf-with-ruby-on-rails/</a></p>
+<p><a href="https://code.tutsplus.com/tutorials/generating-pdfs-from-html-with-rails--cms-22918">https://code.tutsplus.com/tutorials/generating-pdfs-from-html-with-rails--cms-22918</a></p>
+
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+    <div>
+    <a href="" target="_blank" style="text-decoration:none">
+        <div class="goup-container footer-github">
+            <i class="ri-github-fill footer-github-icon"></i>
+        </div>
+    </a>
+    <div class="footer reveal">
+        
+            <p>
+                Copyright&nbsp;<i class="ri-copyright-line"></i>&nbsp;·&nbsp;2021&nbsp;·&nbsp;gnuT_98
+            </p>
+        
+    </div>
+</div>
+
+
+    <script src="/js/jquery.min.js"></script><script src="/js/tony.min.21fb28b08edccb7a220a2a53f8fa67ba2f62588d04437e5a3998769b79537006.js" integrity="sha256-IfsosI7cy3oiCipT+Ppnui9iWI0EQ35aOZh2m3lTcAY="></script><script src="/js/medium-zoom.min.js"></script>
+<script>
+	mediumZoom(document.querySelectorAll('div.article-content img'), {
+        background: '#fff'
+    });
+</script>
+
+
+    
+<script>
+(function(){
+	var bp = document.createElement('script');
+	var curProtocol = window.location.protocol.split(':')[0];
+	if (curProtocol === 'https'){
+	 bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	}
+	else{
+	bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	}
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+</html>
