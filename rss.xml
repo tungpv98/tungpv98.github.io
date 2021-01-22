@@ -21,7 +21,7 @@
             <webMaster>tungpv98@gmail.com (gnuT_98)</webMaster>
         
         
-        <lastBuildDate>Fri, 22 Jan 2021 08:28:35 +0700</lastBuildDate>
+        <lastBuildDate>Fri, 22 Jan 2021 08:29:21 +0700</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://tungpv98.github.io/rss.xml" />
         
@@ -99,6 +99,12 @@ Sau đấy mình thêm các dependency cần thiết như <code>dropwizard</code
                                     
                                     
                                         <category domain="https://tungpv98.github.io/tags/dropwizard/">Dropwizard</category>
+                                    
+                                
+                                    
+                                    
+                                    
+                                        <category domain="https://tungpv98.github.io/tags/java/">java</category>
                                     
                                 
                             
