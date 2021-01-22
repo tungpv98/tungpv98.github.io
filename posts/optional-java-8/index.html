@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/remixicon/remixicon.css"><link rel="stylesheet" href="/css/tony.min.5e6e21dfb213ef15aa56b237667adec0ec9bd1278173197eab9021c317f73b0c.css" integrity="sha256-Xm4h37IT7xWqVrI3ZnrewOyb0SeBcxl+q5Ahwxf3Oww="/>
+
+    <link rel="shortcut icon" href="/images/avatar.png" type="image/x-icon" />
+    <title>Optional Java 8</title>
+
+    <meta name="author" content="gnuT_98" /><meta name="description" content="" />
+
+    
+    <link rel="canonical" href="https://tungpv98.github.io/posts/optional-java-8/" /><head>
+    
+  
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Fira+Code:400,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+</head>
+
+</head>
+
+    <header id="header-div" class="tony-header-fixed">
+
+    <div class="header-div1">
+        <a href="https://tungpv98.github.io/" style="display:inline-block;">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="header-div2">
+    <a href="/"><button class="btn btn-light">Home</button></a>
+    <a href="/about/"><button class="btn btn-light">About</button></a>
+    
+</div>
+</header>
+    <body>
+        
+    <div id="post-container">
+    <div class="grid grid-centered">
+        <div id="grid-cell" class="grid-cell">
+            
+                <div class="single-left">
+                    
+        
+        
+        
+        
+            
+            
+            
+            <div class="index-div">
+                <div class="single-index">
+                    <h4>
+                        <i class="ri-list-check-2"></i>
+                        TOC
+                    </h4>
+                </div>  
+                <ul id="article-index" class="index-ul">
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#optional-l%c3%a0-g%c3%ac">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Optional là gì?
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#t%e1%ba%a1o-%c4%91%e1%bb%91i-t%c6%b0%e1%bb%a3ng-optional">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Tạo đối tượng Optional
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#1-t%e1%ba%a1o-m%e1%bb%99t-optional-r%e1%bb%97ng">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;1. Tạo một Optional rỗng
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#2-t%e1%ba%a1o-m%e1%bb%99t-optional-ch%e1%bb%a9a-gi%c3%a1-tr%e1%bb%8b">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2. Tạo một Optional chứa giá trị
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#3-t%e1%ba%a1o-m%e1%bb%99t-optional-c%c3%b3-gi%c3%a1-tr%e1%bb%8b-ho%e1%ba%b7c-r%e1%bb%97ng">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3. Tạo một Optional có giá trị hoặc rỗng
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#ki%e1%bb%83m-tra-gi%c3%a1-tr%e1%bb%8b-c%e1%bb%a7a-optional">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Kiểm tra giá trị của Optional
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#1-ispresent">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;1. isPresent()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#2-ifpresent">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2. ifPresent()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#m%e1%bb%99t-s%e1%bb%91-ph%c6%b0%c6%a1ng-th%e1%bb%a9c-optional-cung-c%e1%ba%a5p">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Một số phương thức Optional cung cấp
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#1-get">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;1. get()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#2-orelse">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2. orElse()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#3-orelseget">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3. orElseGet()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#4-resourcenotfoundexception">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;4. ResourceNotFoundException()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#5-filter">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;5. filter()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#6-map">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;6. map()
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#k%e1%ba%bft-lu%e1%ba%adn">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;Kết luận
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                </ul>
+            </div>
+        
+                    
+
+
+
+
+    
+    
+        <div>
+            <div class="index-div-next">
+                <h4>Older</h4>
+                <p>
+                    <a href="/posts/lap-lich-cong-viec-voi-whenever-va-delayed-job-trong-rails/" rel="prev">Lập Lịch Công Việc Với WHENEVER VÀ DELAYED_JOB Trong Rails</a>
+                </p>
+            </div>
+        </div>
+    
+
+                </div>
+            
+            
+                <div id="reading-bar"></div>
+            
+            <article class="article reveal">
+                <div id="load">
+                    <div class="article-header">
+                        
+<span title="预计阅读时长" class="badge badge-pill badge-danger single-badge post-header">
+    5 mins
+</span>
+<h2 class="single-h2">Optional Java 8</h2>
+<div class="article-list-footer">
+    <span class="article-list-date">22-01-21</span>
+    <span class="article-list-divider">/</span>
+    <span class="article-list-minutes">895 Words</span>
+</div>
+<div class="single-line"></div>
+                    </div>
+                    <div class="article-content">
+                        <blockquote>
+<p>Nếu bạn là một lập trình viên Java, thì bạn hẳn đã nghe nói hoặc trải nghiệm về NullPointerExceptions trong các chương trình của mình. NullPointerExceptions là các ngoại lệ được jvm ném ra trong quá trình chạy.  Kiểm tra rỗng trong các chương trình thường bị các lập trình viên bỏ qua gây ra các lỗi nghiêm trọng. Java 8 đã giới thiệu<code> Optional&lt;T&gt;</code> để giúp các nhà phát triển xử lý các giá trị null đúng cách.</p>
+</blockquote>
+<h1 id="optional-là-gì">Optional là gì?</h1>
+<p>Optional là một thùng chứa cho một đối tượng có thể là null.
+Hãy xem xét hàm findUserById sau, trả về một đối tượng <code>User</code> từ <code>userId</code> truyền vào.</p>
+<pre><code>    User findUserById(String userId) { ... };
+</code></pre><p>Nếu <code>userId</code> không có trong cơ sở dữ liệu thì hàm trên trả về null.  Bây giờ, hãy xem xét đoạn mã sau:</p>
+<pre><code>    User user = findUserById(&quot;667290&quot;);
+    System.out.println(&quot;User's Name = &quot; + user.getName());
+</code></pre><p>Một trường hợp để xảy ra <code>NullPointerException</code> phổ biến. Lập trình viên đã quên kiểm tra đối tượng <code>User</code> trước khi gọi hàm <code>user.getName()</code>. Bởi vì <code>userId</code> không có trong csdl nên đoạn mã trên sẽ tạo ra một <code>NullPointerException</code>. Chúng ta có thể dùng <code>Optional</code> để giải quyết rắc rối này:</p>
+<pre><code>Optional&lt;User&gt; findUserById(String userId) { ... };
+</code></pre><p>Bằng cách trả về <code>Optional&lt;User&gt;</code> từ hàm, chúng ta đã nói rõ với những lời gọi hàm này rằng có thể sẽ không có <code>User</code> nào với <code>userId</code> đã cho. Bây giờ lời gọi hàm này chúng ta phải xử lý như sau :</p>
+<pre><code>    Optional&lt;User&gt; optional = findUserById(&quot;667290&quot;);
+
+    optional.ifPresent(user -&gt; {
+        System.out.println(&quot;User's name = &quot; + user.getName());    
+    })
+</code></pre><p>Phương thức <code>ifPresent()</code> sẽ gọi biểu thức <code>lambda</code> nếu <code>User</code> tồn tại, nếu không biểu thức <code>lambda</code> sẽ không được gọi.</p>
+<h1 id="tạo-đối-tượng-optional">Tạo đối tượng Optional</h1>
+<h2 id="1-tạo-một-optional-rỗng">1. Tạo một <code>Optional</code> rỗng</h2>
+<pre><code>Optional&lt;User&gt; user = Optional.empty();
+</code></pre><h2 id="2-tạo-một-optional-chứa-giá-trị">2. Tạo một <code>Optional</code> chứa giá trị</h2>
+<pre><code>User user = new User(&quot;667290&quot;, &quot;Sun Bear&quot;);
+Optional&lt;User&gt; userOptional = Optional.of(user);
+</code></pre><p>Nếu đối số được cung cấp cho <code>Optional.of()</code> là <code>null</code>, thì nó sẽ ném ra một <code>NullPointerException</code> ngay lập tức và đối tượng <code>Optional</code> sẽ không được tạo.</p>
+<h2 id="3-tạo-một-optional-có-giá-trị-hoặc-rỗng">3. Tạo một <code>Optional</code> có giá trị hoặc rỗng</h2>
+<pre><code>Optional&lt;User&gt; userOptional = Optional.ofNullable(user);
+</code></pre><p>Nếu đối số được truyền đến <code>Optional.ofNullable()</code>không phải là <code>null</code>, thì nó sẽ trả về một <code>Optional</code> chứa giá trị được chỉ định, nếu không nó sẽ trả về một <code>Optional</code> trống.</p>
+<h1 id="kiểm-tra-giá-trị-của-optional">Kiểm tra giá trị của <code>Optional</code></h1>
+<h2 id="1-ispresent">1. isPresent()</h2>
+<p>Phương thức <code>isPresent ()</code> trả về <code>true</code> nếu Tùy chọn chứa giá trị khác rỗng, nếu không, nó trả về <code>false</code>.</p>
+<pre><code>    if(optional.isPresent()) {
+        System.out.println(&quot;Value found - &quot; + optional.get());
+    } else {
+        System.out.println(&quot;Optional is empty&quot;);
+    }	
+</code></pre><h2 id="2-ifpresent">2. ifPresent()</h2>
+<p>Phương thức <code>ifPresent ()</code> cho phép gọi biểu thức <code>lambda</code> bên trong nếu <code>optional</code> có giá trị. Nó không có tác dụng gì nếu <code>Optional</code> trống.</p>
+<pre><code>optional.ifPresent(value -&gt; {
+    System.out.println(&quot;Value found - &quot; + value);
+});
+</code></pre><h1 id="một-số-phương-thức-optional-cung-cấp">Một số phương thức <code>Optional</code> cung cấp</h1>
+<h2 id="1-get">1. get()</h2>
+<p>Phương thức <code>get ()</code> của <code>Optional</code> trả về một giá trị nếu nó tồn tại, nếu không nó sẽ ném <code>NoSuchElementException</code>.</p>
+<pre><code>User user = optional.get()
+</code></pre><h2 id="2-orelse">2. orElse()</h2>
+<p><code>orElse ()</code> trả về giá trị mặc định nếu Optional trống. Hãy xem xét ví dụ sau:</p>
+<pre><code>User finalUser = (user != null) ? user : new User(&quot;0&quot;, &quot;Unknown User&quot;);
+</code></pre><p>Ta có thể dùng <code>orElse()</code> như sau:</p>
+<pre><code>User finalUser = optionalUser.orElse(new User(&quot;0&quot;, &quot;Unknown User&quot;));
+</code></pre><h2 id="3-orelseget">3. orElseGet()</h2>
+<p>Không giống như <code>orElse ()</code>, trả về giá trị mặc định trực tiếp nếu <code>Optional</code> trống, <code>orElseGet ()</code> cho phép bạn chuyển một hàm mà chúng ta cung cấp được gọi khi <code>Optional</code> trống.  Kết quả của hàm được chúng ta cung cấp trở thành giá trị mặc định của <code>Optional</code>.</p>
+<pre><code>User finalUser = optionalUser.orElseGet(() -&gt; {
+    return new User(&quot;0&quot;, &quot;Unknown User&quot;);
+});
+</code></pre><h2 id="4-resourcenotfoundexception">4. ResourceNotFoundException()</h2>
+<p>Chúng ta có thể sử dụng <code>orElseThrow () </code>để ném một ngoại lệ nếu <code>Optional</code> trống.  Một trường hợp điển hình trong đó điều này có thể hữu ích là - trả về một ngoại lệ <code>ResourceNotFound() </code>tùy chỉnh từ <code>REST API</code> nếu đối tượng với các tham số yêu cầu được chỉ định không tồn tại.</p>
+<pre><code>@GetMapping(&quot;/users/{userId}&quot;)
+public User getUser(@PathVariable(&quot;userId&quot;) String userId) {
+    return userRepository.findByUserId(userId).orElseThrow(
+	    () -&gt; new ResourceNotFoundException(&quot;User not found with userId &quot; + userId);
+    );
+}
+</code></pre><h2 id="5-filter">5. filter()</h2>
+<p>Giả sử ta có đối tượng <code>Optional&lt;User&gt;</code>.  Muốn kiểm tra giới tính của user đó và gọi một hàm nếu đó là Male.  Đây là cách giúp chúng ta làm điều đó bằng phương pháp cũ:</p>
+<pre><code>if(user != null &amp;&amp; user.getGender().equalsIgnoreCase(&quot;MALE&quot;)) {
+    // call a function
+}
+</code></pre><p>Bây giờ, Sử dụng <code>Optional</code> với <code>filter()</code>:</p>
+<pre><code>userOptional.filter(user -&gt; user.getGender().equalsIgnoreCase(&quot;MALE&quot;))
+.ifPresent(() -&gt; {
+      // call a function
+})
+</code></pre><h2 id="6-map">6. map()</h2>
+<p>Giả sử rằng ta muốn lấy địa chỉ của người dùng nếu địa chỉ đã có sẵn và in địa chỉ đó nếu người dùng đến từ VietNam.<br>
+Phương thức <code>getAddress () </code>bên trong lớp <code>User</code>:</p>
+<pre><code>Address getAddress() {
+    return this.address;
+}
+</code></pre><p>Đây là cách chúng ta làm truyền thống:</p>
+<pre><code>if(user != null) {
+    Address address = user.getAddress();
+    if(address != null &amp;&amp; address.getCountry().equalsIgnoreCase(&quot;VietNam&quot;)) {
+	    System.out.println(&quot;User belongs to VietNam&quot;);
+    }
+}
+</code></pre><p>Sử dụng <code>Optional</code> và <code>map()</code>:</p>
+<pre><code>userOptional.map(User::getAddress)
+.filter(address -&gt; address.getCountry().equalsIgnoreCase(&quot;VietNam&quot;))
+.ifPresent(() -&gt; {
+    System.out.println(&quot;User belongs to VietNam&quot;);
+});
+</code></pre><h1 id="kết-luận">Kết luận</h1>
+<blockquote>
+<p>Bài viết này mình đã trình bày về <code>Optional</code> trong Java 8 và cách sử dụng nó để chúng ta có thể tránh các <code>NullPointerExceptions</code> trong quá trình chúng ta làm việc với Java. Cảm ơn mọi người!</p>
+</blockquote>
+
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+    <div>
+    <a href="" target="_blank" style="text-decoration:none">
+        <div class="goup-container footer-github">
+            <i class="ri-github-fill footer-github-icon"></i>
+        </div>
+    </a>
+    <div class="footer reveal">
+        
+            <p>
+                Copyright&nbsp;<i class="ri-copyright-line"></i>&nbsp;·&nbsp;2021&nbsp;·&nbsp;gnuT_98
+            </p>
+        
+    </div>
+</div>
+
+
+    <script src="/js/jquery.min.js"></script><script src="/js/tony.min.21fb28b08edccb7a220a2a53f8fa67ba2f62588d04437e5a3998769b79537006.js" integrity="sha256-IfsosI7cy3oiCipT+Ppnui9iWI0EQ35aOZh2m3lTcAY="></script><script src="/js/medium-zoom.min.js"></script>
+<script>
+	mediumZoom(document.querySelectorAll('div.article-content img'), {
+        background: '#fff'
+    });
+</script>
+
+
+    
+<script>
+(function(){
+	var bp = document.createElement('script');
+	var curProtocol = window.location.protocol.split(':')[0];
+	if (curProtocol === 'https'){
+	 bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	}
+	else{
+	bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	}
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+</html>
