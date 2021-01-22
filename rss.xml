@@ -21,10 +21,103 @@
             <webMaster>tungpv98@gmail.com (gnuT_98)</webMaster>
         
         
-        <lastBuildDate>Fri, 22 Jan 2021 08:26:07 +0700</lastBuildDate>
+        <lastBuildDate>Fri, 22 Jan 2021 08:27:29 +0700</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://tungpv98.github.io/rss.xml" />
         
+        
+            
+                <item>
+                    <title>Restful API with Java framework Dropwizard ( Đờ rốp wi dớt )</title>
+                    <link>https://tungpv98.github.io/posts/restful-api-with-java-framework-dropwizard-do-rop-wi-dot/</link>
+                    <guid isPermaLink="true">https://tungpv98.github.io/posts/restful-api-with-java-framework-dropwizard-do-rop-wi-dot/</guid>
+                    <pubDate>Fri, 22 Jan 2021 08:24:20 +0700</pubDate>
+                    <description><![CDATA[<blockquote>
+<p>Dạo gần đây vì nhu cầu của dự án, khách hàng muốn team mình code Java bằng framework Dropwizard. Qua mấy ngày tìm hiểu thì mình có một vài chia sẻ như sau :</p>
+</blockquote>
+<blockquote>
+<p>Dropwizard là gì ?
+<a href="https://www.dropwizard.io/">https://www.dropwizard.io/</a></p>
+<p>Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services</p>
+<p>Là một framework nhỏ gọn giúp chúng ta phát triển API một cách nhanh chóng và tiện lợi. Cùng với hiệu năng cao với các ứng dụng microservice.</p>
+</blockquote>
+<blockquote>
+<p>Và lập trình viên chúng ta bao giờ cũng thế! Khi học một ngôn ngữ hoặc framwork mới, chúng ta sẽ làm một project example với cái chúng ta đang học.Mình cũng vậy, vậy nên hôm nay mình xin trình bày cách tạo một ứng dụng API đơn giản bằng Dropwizard.</p>
+<p>Bao gồm tạo mới 1 User, xem danh sách User, xem thông tin một User, cập nhật User, và xóa User.</p>
+</blockquote>
+<h2 id="1-tạo-project-maven">1. Tạo project maven</h2>
+<p>Đầu tiên mình sẽ tiến hành tạo một project maven.
+{@embed: <a href="https://gist.github.com/tungpv-0974/f2131b561e290ecd80df40524b8e43e9%7D">https://gist.github.com/tungpv-0974/f2131b561e290ecd80df40524b8e43e9}</a>
+Sau đấy mình thêm các dependency cần thiết như <code>dropwizard</code> và <code>lombok</code>:</p>
+<p>{@embed: <a href="https://gist.github.com/tungpv-0974/207fbd8d694baa1ae986bd78deddf55b%7D">https://gist.github.com/tungpv-0974/207fbd8d694baa1ae986bd78deddf55b}</a></p>
+<h2 id="2-config">2. Config</h2>
+<p>Tiến hành tạo class <code>AppConfig</code> extends class <code>Configuration</code> như sau:
+{@embed: <a href="https://gist.github.com/tungpv-0974/85e003a49509aca7f40c66efc20e2c5b%7D">https://gist.github.com/tungpv-0974/85e003a49509aca7f40c66efc20e2c5b}</a></p>
+<p>Tạo file config.yml để config:
+{@embed: <a href="https://gist.github.com/tungpv-0974/eb6ad5a1cf7e2c2ec73eaedb40ae9611%7D">https://gist.github.com/tungpv-0974/eb6ad5a1cf7e2c2ec73eaedb40ae9611}</a></p>
+<p>Và cuối cùng, chương trình nào cũng phải có hàm main đúng không ?</p>
+<p>Mình tạo class <code>MainApplication</code> chứa hàm <code>main</code> để có thể chạy được server:
+{@embed: <a href="https://gist.github.com/tungpv-0974/88ae8149df180e90cb363fd6ba0a3506%7D">https://gist.github.com/tungpv-0974/88ae8149df180e90cb363fd6ba0a3506}</a></p>
+<blockquote>
+<p>Vậy là đã đủ để mình có thể phát triển RestAPI với dropwizard!</p>
+</blockquote>
+<h2 id="implement-resource">Implement Resource</h2>
+<p>Mình sẽ tạo ra một <code>Model</code> có tên là <code>User</code>: <em>(Mình có sử dụng lombok để không phải viết constructor, setter và getter)</em>
+{@embed: <a href="https://gist.github.com/tungpv-0974/56ed24e520a3f5894962d79304b089ec%7D">https://gist.github.com/tungpv-0974/56ed24e520a3f5894962d79304b089ec}</a></p>
+<p>Tiếp theo mình tạo <code>UserResource</code>, <em>(Resource ở dropwizard giống như controller trong Spring framework)</em>.</p>
+<p>Trong UserResource này mình có đầy đủ 5 phương thức GET, POST, PUT và DELETE, đầy đủ cho một <code>RestfulAPI</code> đơn giản :
+{@embed: <a href="https://gist.github.com/tungpv-0974/fbc56f1749420b6afd633147f5537225%7D">https://gist.github.com/tungpv-0974/fbc56f1749420b6afd633147f5537225}</a></p>
+<p>Với dropwizard, mình phải tiến hành đăng ký resource mới tạo vào trong hàm run() ở class <code>MainApplication</code> thì mới có thể gọi đến các đầu API mình vừa viết ở trong class <code>resource</code>:</p>
+<pre><code>    @Override
+    public void run(AppConfig configuration, Environment environment) {
+        environment.jersey().register(new UserResource());
+    }
+</code></pre><blockquote>
+<p>Vậy là xong rồi !</p>
+</blockquote>
+<p><strong>Mình tiến hành test API với các curl sau:</strong>
+{@embed: <a href="https://gist.github.com/tungpv-0974/0d1c229aceb8e644e8c606e5143df1df%7D">https://gist.github.com/tungpv-0974/0d1c229aceb8e644e8c606e5143df1df}</a></p>
+<p>Mặc dù <code>Dropwizard</code> sinh ra để hỗ trợ để tạo ra các API, nhưng nó cũng hỗ trợ webview nếu chúng ta muốn. Trong bài sau, mình sẽ tiến hành cấu hình <code>Dropwizard</code> với <code>thymeleaf</code> để thêm giao diện cho webapp này!</p>
+<blockquote>
+<p>MÌNH ĐÃ CẬP NHẬT PHẦN CONFIG để sử dụng thymeleaf với dropwizard ở đây ! <a href="https://viblo.asia/p/dropwizard-view-voi-thymeleaf-template-engine-63vKjv36K2R">https://viblo.asia/p/dropwizard-view-voi-thymeleaf-template-engine-63vKjv36K2R</a></p>
+<p>Hẹn gặp lại! 😀😀😀</p>
+</blockquote>
+<blockquote>
+<p>SOURCE CODE MÌNH CÓ ĐỂ TẠI ĐÂY !!! <a href="https://github.com/tungpv-0974/example-dropwizard">https://github.com/tungpv-0974/example-dropwizard</a></p>
+</blockquote>
+]]></description>
+                    
+                        
+                    
+                    
+                        
+                            
+                        
+                            
+                                
+                                    
+                                    
+                                    
+                                        <category domain="https://tungpv98.github.io/tags/restapi/">restapi</category>
+                                    
+                                
+                                    
+                                    
+                                    
+                                        <category domain="https://tungpv98.github.io/tags/java/">Java</category>
+                                    
+                                
+                                    
+                                    
+                                    
+                                        <category domain="https://tungpv98.github.io/tags/dropwizard/">Dropwizard</category>
+                                    
+                                
+                            
+                        
+                    
+                </item>
+            
         
             
                 <item>
