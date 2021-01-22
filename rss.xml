@@ -21,10 +21,135 @@
             <webMaster>tungpv98@gmail.com (gnuT_98)</webMaster>
         
         
-        <lastBuildDate>Fri, 22 Jan 2021 08:19:35 +0700</lastBuildDate>
+        <lastBuildDate>Fri, 22 Jan 2021 08:22:01 +0700</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://tungpv98.github.io/rss.xml" />
         
+        
+            
+                <item>
+                    <title>Lập Lịch Công Việc Với WHENEVER VÀ DELAYED_JOB Trong Rails</title>
+                    <link>https://tungpv98.github.io/posts/lap-lich-cong-viec-voi-whenever-va-delayed-job-trong-rails/</link>
+                    <guid isPermaLink="true">https://tungpv98.github.io/posts/lap-lich-cong-viec-voi-whenever-va-delayed-job-trong-rails/</guid>
+                    <pubDate>Fri, 22 Jan 2021 08:21:22 +0700</pubDate>
+                    <description><![CDATA[<p>Trong bài này tôi sẽ giới thiệu với các bạn hai Ruby Gem được sử dụng khá nhiều trong Rails để lập lịch thực hiện công việc, tạo cronjob và triển khai ứng dụng một cách tự động, đó là Whenever và Delayed_job.</p>
+<h1 id="i-whenever">I. Whenever</h1>
+<p>Whenever là một Ruby Gem cung cấp cú pháp rõ ràng cho việc viết và triển khai cronjobs.</p>
+<p>Whenever được dùng để thực hiện các công việc hàng ngày như backup hệ thống, kiểm tra tài khoản người dùng,… và có thể được tích hợp vào Capistrano để tự động tạo cronjobs khi triển khai ứng dụng lên server.</p>
+<p>Bạn có thể tìm hiểu về Whenever tai trang Github <a href="https://github.com/javan/whenever">https://github.com/javan/whenever</a>.</p>
+<p>Để cài đặt Whenever ta chạy lệnh</p>
+<p><code>$ gem install whenever</code></p>
+<p>Để bắt đầu sử dụng Whenever, di chuyển đển thư mục ứng dụng và khởi tạo Whenever</p>
+<pre><code>$ cd ~/projects/my-project
+$ wheneverize .
+</code></pre><p>Lệnh wheneverize . sẽ tạo file <code>config/schedule.rb</code></p>
+<p>Đây là một ví dụ của file <code>config/schedule.rb</code></p>
+<pre><code># Kiểm tra tài khoản người dùng hàng ngày vào lúc 1 giờ sáng
+every 1.day, :at =&gt; &quot;1:00am&quot; do
+    rails &quot;system:account_check&quot;
+end
+# Mỗi ngày chạy sao lưu hệ thống 2 lần, cách nhau 12 tiếng
+every 12.hours do
+   rails &quot;system:run_backup&quot;
+end
+</code></pre><p>Để đưa các task này vào crontab, ta chạy lệnh:</p>
+<p><code>~/projects/my-project$ whenever --update-crontab my-project</code></p>
+<p>Ta có thể sử dụng whenever với Capistrano như sau:</p>
+<pre><code>set :application, &quot;my-project&quot;
+namespace :deploy do
+   desc &quot;Update the crontab file&quot;
+   task :update_crontab, :roles =&gt; :app do
+      run &quot;cd #{release_path} &amp;&amp; whenever --update-crontab #{application}&quot;
+   end
+end
+after &quot;deploy:create_symlink&quot;, &quot;deploy:update_crontab&quot;
+</code></pre><p>Đây là nội dung được tạo ra trong crontab khi triển khai ứng dụng bằng Capistrano (chạy lệnh<code> crontab -l</code> từ terminal để xem)</p>
+<pre><code># Begin Whenever generated tasks for: my-project
+0 1 * * * /bin/bash -l -c 'cd /var/www/projects/my-project/production/releases/20121219061558 &amp;&amp; RAILS_ENV=production bundle exec rake system:account_check --silent &gt;&gt; /var/www/projects/my-project/production/releases/20121219061558/log/cron_log.txt 2&gt;&amp;1'
+0 0,12 * * * /bin/bash -l -c 'cd /var/www/projects/my-project/production/releases/20121219061558 &amp;&amp; RAILS_ENV=production bundle exec rake system:run_backup --silent &gt;&gt; /var/www/projects/my-project/production/releases/20121219061558/log/cron_log.txt 2&gt;&amp;1'
+# End Whenever generated tasks for: my-project
+</code></pre><h1 id="ii-delayed_job">II. Delayed_job</h1>
+<p>Delayed_job là Ruby gem thường được sử dụng để thực các công việc có thời gian chạy lâu hoặc các công việc muốn thực hiện trong tương lai. Các công việc này sẽ được chạy nền và không hiển thị đối với người dùng cuối.</p>
+<p>Delayed_job giúp cho ứng dụng chạy mượt mà hơn đối với người dùng cuối do các công việc tiêu tốn thời gian sẽ được thực hiện ngầm. Các công việc này có thể là:</p>
+<ul>
+<li>Gửi email đến người dùng</li>
+<li>Thu nhỏ ảnh được tải lên</li>
+<li>Tải nội dung từ một trang thứ 3</li>
+<li>Đánh chỉ mục hệ thống</li>
+<li>Các phép tính toán đòi hỏi thời gian…</li>
+</ul>
+<p>Ngoài ra Delayed_job cũng phù hợp với các công việc được thực hiện theo một kế hoạch nào đó, chẳng hạn như định kỳ gửi bản tin đến người dùng.</p>
+<p>Ban đầu Delayed_job được viết bởi tác giả Tobias Lütke (<a href="https://github.com/tobi),">https://github.com/tobi),</a> sau đó được fork lại bởi Collective Idea (<a href="https://github.com/collectiveidea">https://github.com/collectiveidea</a>) và hiện tại phiên bản của Collective Idea đang được sử dụng phổ biến hơn.</p>
+<p>Bạn có thể tìm hiểu thêm về delayed_job tại địa chỉ <a href="https://github.com/collectiveidea/delayed_job">https://github.com/collectiveidea/delayed_job</a></p>
+<p>Dưới đây là các bước cài đặt và sử dụng Delayed_job trong Rails với ActiveRecord.</p>
+<p>Để cài đặt Delayed_job cho Active Record, bạn sử dụng <code>gem ‘delayed_job_active_record’</code></p>
+<ul>
+<li>
+<p>Khởi tạo delayed_job</p>
+<pre><code>$ rails g delayed_job:active_record
+$ rails db:migrate
+</code></pre></li>
+<li>
+<p>Khởi động Worker của Delayed_job</p>
+<pre><code>$ rake jobs:work
+</code></pre></li>
+<li>
+<p>Sử dụng Delayed_job theo cách đơn giản, ví dụ gửi email cho người dùng sau khi đăng ký thành công</p>
+<ul>
+<li>Trước khi sử dụng Delayed_job</li>
+</ul>
+<pre><code>NotificationMailer.notify_account_activated(@user).deliver
+</code></pre></li>
+<li>
+<p>Với Delayed_job</p>
+<pre><code>    NotificationMailer.delay.notify_account_activated(@user)
+</code></pre><p>Ta cũng có thể sử dụng Delayed_job để thực hiện công việc theo lịch hay định kỳ. Trong ví dụ này ứng dụng sẽ gửi email đến người dùng vừa kích hoạt sau một ngày, vào lúc 8 giờ sáng.</p>
+<pre><code>    RAILS_ROOT/lib/delayed_jobs/newsletter_job.rb
+     class NewsletterJob &lt; Struct.new(:user)
+       def perform
+         NewsletterMailer.welcome_mail(user).deliver
+       end
+     end
+
+     # Controller
+     # run at 8 a.m next day
+     Delayed::Job.enqueue NewsletterMailer.new(@user) , 0, 1.day.from_now.change({:hour =&gt; 8 })
+</code></pre><p>Sử dụng Delayed_job với Capistrano</p>
+</li>
+</ul>
+<p>Trước tiên bạn cần cài đặt Ruby gem có tên “daemons” để chạy worker của delayed_job như một process của hệ thống.</p>
+<pre><code>gem install 'daemons'
+</code></pre><pre><code># Location: config/deploy.rb
+namespace :delayed_job do
+  desc &quot;Start delayed_job process&quot;
+  task :start, :roles =&gt; :app do
+    run &quot;cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job start&quot;
+  end
+
+  desc &quot;Stop delayed_job process&quot;
+  task :stop, :roles =&gt; :app do
+    run &quot;cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job stop&quot;
+  end
+
+  desc &quot;Restart delayed_job process&quot;
+  task :restart, :roles =&gt; :app do
+   run &quot;cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job restart&quot;
+  end
+end
+</code></pre><p>Như vậy Whenever và Delayed_job sẽ giúp cho bạn thực hiện công việc theo lịch định sẵn, tăng tốc độ ứng dụng đối với người dùng cuối và triển khai lên server một cách nhanh chóng và tự đông.</p>
+]]></description>
+                    
+                        
+                    
+                    
+                        
+                            
+                        
+                            
+                        
+                    
+                </item>
+            
         
             
                 <item>
