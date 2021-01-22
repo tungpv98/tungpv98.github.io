@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/remixicon/remixicon.css"><link rel="stylesheet" href="/css/tony.min.5e6e21dfb213ef15aa56b237667adec0ec9bd1278173197eab9021c317f73b0c.css" integrity="sha256-Xm4h37IT7xWqVrI3ZnrewOyb0SeBcxl+q5Ahwxf3Oww="/>
+
+    <link rel="shortcut icon" href="/images/avatar.png" type="image/x-icon" />
+    <title>GMO Payment Gateway Plus (Link type Connection)</title>
+
+    <meta name="author" content="gnuT_98" /><meta name="description" content="" />
+
+    
+    <link rel="canonical" href="https://tungpv98.github.io/posts/gmo-payment-gateway-plus-link-type-connection/" /><head>
+    
+  
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Fira+Code:400,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+</head>
+
+</head>
+
+    <header id="header-div" class="tony-header-fixed">
+
+    <div class="header-div1">
+        <a href="https://tungpv98.github.io/" style="display:inline-block;">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="header-div2">
+    <a href="/"><button class="btn btn-light">Home</button></a>
+    <a href="/about/"><button class="btn btn-light">About</button></a>
+    
+</div>
+</header>
+    <body>
+        
+    <div id="post-container">
+    <div class="grid grid-centered">
+        <div id="grid-cell" class="grid-cell">
+            
+                <div class="single-left">
+                    
+        
+        
+        
+        
+            
+            
+            
+            <div class="index-div">
+                <div class="single-index">
+                    <h4>
+                        <i class="ri-list-check-2"></i>
+                        TOC
+                    </h4>
+                </div>  
+                <ul id="article-index" class="index-ul">
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#1-gmo-payment-gateway-l%c3%a0-g%c3%ac">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;1. GMO payment Gateway là gì?
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#2-ch%e1%bb%a9c-n%c4%83ng-ch%e1%bb%89nh-s%e1%bb%ada-th%e1%ba%bb">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2. Chức năng chỉnh sửa thẻ.
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#21-t%e1%ba%a1o-url-ch%e1%bb%89nh-s%e1%bb%ada-th%e1%ba%bb-theo-%c4%91%e1%bb%8bnh-d%e1%ba%a1ng-m%c3%a0-gmo-quy-%c4%91%e1%bb%8bnh">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2.1 Tạo URL chỉnh sửa thẻ theo định dạng mà GMO quy định.
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#22--api-get-url-do-gmo-cung-c%e1%ba%a5p">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2.2 API get URL do GMO cung cấp.
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#23-giao-di%e1%bb%87n-edit-card">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;2.3 Giao diện edit card
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#3-ch%e1%bb%a9c-n%c4%83ng-thanh-to%c3%a1n">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3. Chức năng thanh toán
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#31-t%e1%ba%a1o-url-thanh-to%c3%a1n-theo-%c4%91%e1%bb%8bnh-d%e1%ba%a1ng-m%c3%a0-gmo-quy-%c4%91%e1%bb%8bnh">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3.1 Tạo URL thanh toán theo định dạng mà GMO quy định.
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#32-api-get-url-payment-do-gmo-cung-c%e1%ba%a5p">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3.2 API get URL payment do GMO cung cấp.
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#33-giao-di%e1%bb%87n-thanh-to%c3%a1n">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;3.3 Giao diện thanh toán
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                        
+                        
+                            
+                                
+                                
+                                <a href="#4-k%e1%ba%bft-lu%e1%ba%adn">
+                                    <li style="padding-left:23px" class="">
+                                        <i class="ri-checkbox-blank-circle-line"></i>
+                                        &nbsp;&nbsp;4. KẾT LUẬN
+                                    </li>
+                                </a>
+                            
+                        
+                    
+                </ul>
+            </div>
+        
+                    
+
+
+
+
+    
+    
+        <div>
+            <div class="index-div-next">
+                <h4>Older</h4>
+                <p>
+                    <a href="/posts/restful-api-with-java-framework-dropwizard-do-rop-wi-dot/" rel="prev">Restful API with Java framework Dropwizard ( Đờ rốp wi dớt )</a>
+                </p>
+            </div>
+        </div>
+    
+
+                </div>
+            
+            
+                <div id="reading-bar"></div>
+            
+            <article class="article reveal">
+                <div id="load">
+                    <div class="article-header">
+                        
+<span title="预计阅读时长" class="badge badge-pill badge-danger single-badge post-header">
+    9 mins
+</span>
+<h2 class="single-h2">GMO Payment Gateway Plus (Link type Connection)</h2>
+<div class="article-list-footer">
+    <span class="article-list-date">22-01-21</span>
+    <span class="article-list-divider">/</span>
+    <span class="article-list-minutes">1731 Words</span>
+</div>
+<div class="single-line"></div>
+                    </div>
+                    <div class="article-content">
+                        <h2 id="1-gmo-payment-gateway-là-gì">1. GMO payment Gateway là gì?</h2>
+<p>GMO payment gateway là một cổng thanh toán điện tử của Nhật Bản. Cung cấp các dịch vụ xử lý thanh toán cho các giao dịch thương mại trực tuyến và thẻ tín dụng. Nó cung cấp nhiều phương thức thanh toán khác nhau cho các doanh nghiệp thông qua các cổng thanh toán như thẻ tín dụng, cửa hàng tiện lợi, tiền điện tử, Paypal...</p>
+<p>GMO PG cung cấp 3 loại hình kết nối cho việc triển khai hệ thống thanh toán:</p>
+<ol>
+<li>Protocol type: GMO sẽ cung cấp các đầu API cho việc quản lý thành viên, thẻ và thanh toán. Các thông tin như SiteID, SitePass, ShopId, ShopPass sẽ được sử dụng để gọi được các API này.</li>
+<li>Module type: GMO cung cấp cho chúng ta một module(Java, PHP) để xử lý thanh toán có thể tích hợp vào trong máy chủ của website.</li>
+<li>Link type: Việc thanh toán sẽ được chuyển hướng đến site của GMO, khách hàng sẽ tiến hành nhập thông tin thanh toán bên site của GMO mà không phải nhập thông tin trên website của shop. Việc này đảm bảo an toàn hơn. Giao diện của màn hình thanh toán có thể tùy biến tùy vào config của Shop trên trang quản lý shop của GMO.</li>
+</ol>
+<p>Để tìm hiểu thêm về GMO, đăng ký môi trường test và tìm hiểu về loại hình kết nối <strong>Protocol type</strong>  thì mọi người có thể đọc thêm bài viết : <a href="https://viblo.asia/p/tim-hieu-ve-cong-thanh-toan-gmo-3P0lPvMpKox">Tìm hiểu về cổng thanh toán GMO</a> của tác giả <a href="https://viblo.asia/u/trantrinh1102">Tran Cong Trinh</a>.</p>
+<blockquote>
+<p>Còn ở bài viết này, mình sẽ giới thiệu loại hình kết nối <strong>Link type</strong>, được nhiều hệ thống ưu tiên sử dụng vì tính ưu việt và đảm bảo an toàn hơn so với loại <strong>Protocol type</strong>.</p>
+</blockquote>
+<p>Gmo payment gateway cung cấp 2 chức năng chính đó là:</p>
+<ul>
+<li>chức năng chỉnh sửa thẻ(card).</li>
+<li>chức năng thanh toán.</li>
+</ul>
+<h2 id="2-chức-năng-chỉnh-sửa-thẻ">2. Chức năng chỉnh sửa thẻ.</h2>
+<p><img src="https://images.viblo.asia/52a0dcee-6a83-4950-b65b-c51eece86bd7.png" alt="">
+Mô tả luồng hoạt động :</p>
+<ol>
+<li>Người dùng yêu cầu chỉnh sửa thẻ( trên website của shop).</li>
+<li>Website (phía shop) điều hướng đến Url chỉnh sửa thẻ của GMO.</li>
+<li>Người dùng nhập thông tin thẻ và nhấn cập nhật (trên site GMO).</li>
+<li>GMO thông báo về website của shop về việc cập nhật thẻ thành công.</li>
+<li>GMO hiện thị thông báo cập nhật thẻ thành công cho người dùng.</li>
+<li>Người dùng nhấn nút quay về trên site GMO, và được chuyển hướng về website của shop.</li>
+</ol>
+<p>Vậy trong luồng hoạt động này, thì để điều hướng được người dùng đến site của GMO và nhập thông tin chỉnh sửa thẻ, thì chúng ta cần lấy được URL chỉnh sửa thẻ của GMO và nhúng vào trong trang web của chúng ta. Để mỗi lần người dùng yêu cầu chỉnh sửa thẻ thì chúng ta chỉ cần redirect đến cái Url đấy là được. Còn lại các công việc khác như nhận thông tin thẻ hay lưu lại thì GMO sẽ xử lý hoàn toàn.</p>
+<p>Để tạo được URL này thì có 2 cách :</p>
+<ol>
+<li>Chúng ta có thể tự tạo ra URL này dựa vào quy tắc mà GMO cung cấp.</li>
+<li>Chúng ta gọi API của GMO để GMO trả về cho chúng ta URL.</li>
+</ol>
+<h3 id="21-tạo-url-chỉnh-sửa-thẻ-theo-định-dạng-mà-gmo-quy-định">2.1 Tạo URL chỉnh sửa thẻ theo định dạng mà GMO quy định.</h3>
+<p>Format của URL chỉnh sửa thẻ :
+<img src="https://images.viblo.asia/4089f3f5-cc4e-4e98-a98c-a35fba959d4f.png" alt=""></p>
+<ol>
+<li>Giao thức https (http không khả dụng)</li>
+<li>Domain GMO: Môi trường production: link.mul-pay.jp. Môi trường test: stg.link.mul-pay.jp</li>
+<li>Version.</li>
+<li>Tên của loại thanh toán Gmo plus.</li>
+<li>ID cửa hàng. (ID cửa hàng của cửa hàng thành viên).</li>
+<li>Loại chức năng. Chỉ định &quot;member&quot; cho biết chức năng chỉnh sửa thẻ.</li>
+<li>Bộ tham số được mã hóa base64 + mã băm của nó. ( chi tiết mình sẽ mô tả sau).</li>
+</ol>
+<p>Các bước để tạo bộ tham số mã hóa base64 và mã băm (7).
+<img src="https://images.viblo.asia/d13a54aa-bd12-46c7-b2c8-2d45e9d81d8d.png" alt="">
+Đại loại là sẽ cần tạo ra dữ liệu String từ Json, bao gồm các thông số như trên hình.</p>
+<p>Sau đó dùng hàm Base64Encode để mã hóa dữ liệu trên.</p>
+<p>Nối đoạn dữ liệu sau khi encode bằng base64 với ShopPass và băm với hàm băm sha256.
+Cái được chú thích (7) trên hình là kết quả  nối chuỗi của base64Encode và hash được phân cách bởi dấu chấm (&quot;.&quot;).</p>
+<p>Code bằng Java như sau:
+{@embed: <a href="https://gist.github.com/tungpv-0974/a523fe679aab330a5b0029252e584dce%7D">https://gist.github.com/tungpv-0974/a523fe679aab330a5b0029252e584dce}</a></p>
+<p>Các thông tin như shopId, shopPass thì lúc đăng ký GMO sẽ cung cấp cho chúng ta, chi tiết thì đọc bài viết mình có đính kèm ở bên trên nhé!
+Còn bộ tham số như configid, member,... thì các bạn đọc chi tiết ở <strong>mục 19.5.1 trang 142</strong> <a href="https://drive.google.com/file/d/1gcpTEoKt7-_QWgZPqWI4f30RdkKxCr28/view?usp=sharing">tài liệu này</a> nhé.</p>
+<h3 id="22--api-get-url-do-gmo-cung-cấp">2.2  API get URL do GMO cung cấp.</h3>
+<p>GMO sẽ cung cấp cho chúng ta đầu API sau để get URL edit member :  <strong>[POST]https://[gmo-url]/payment/GetLinkplusUrlMember.json</strong></p>
+<p>[gmo-url] là thông tin được gửi về trong email lúc chúng ta đăng ký với GMO, xem thêm bài viết  <a href="https://viblo.asia/p/tim-hieu-ve-cong-thanh-toan-gmo-3P0lPvMpKox">Tìm hiểu về cổng thanh toán GMO</a> của tác giả <a href="https://viblo.asia/u/trantrinh1102">Tran Cong Trinh</a>.</p>
+<p>example: <a href="https://kt01.mul-pay.jp/payment/GetLinkplusUrlMember.json">https://kt01.mul-pay.jp/payment/GetLinkplusUrlMember.json</a></p>
+<p>Khi chúng ta gọi API này thành công, sẽ nhận được một URL có format như sau:
+<img src="https://images.viblo.asia/bbb4ba9e-968c-4945-93be-41bdf8785e26.png" alt=""></p>
+<p>Chỉ khác với format URL mà chúng ta tự tạo ở phần 2.1 là nó được chỉ định version là v2. và (7) là một API key chứ không còn là bộ tham số được mã hóa base64 + hash nữa.
+Mình có một đoạn CURL example để call API này như sau:</p>
+<pre><code>curl --location --request POST 'https://kt01.mul-pay.jp/payment/GetLinkplusUrlMember.json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;configid&quot;: &quot;001&quot;,
+    &quot;geturlparam&quot;:{
+        &quot;ShopID&quot;: &quot;tshop00001111&quot;,
+        &quot;ShopPass&quot;: &quot;shopPass&quot;
+    },
+    &quot;member&quot;: {
+        &quot;MemberID&quot;: &quot;sample&quot;,
+        &quot;MemberName&quot;: &quot;Phan Van Tung&quot;,
+        &quot;Cardeditno&quot;: &quot;CardEditNo001&quot;
+    }
+}'
+</code></pre><p>Các tham số chi tiết các bạn đọc ở mục <strong>19.5.1 trang 142</strong> <a href="https://drive.google.com/file/d/1gcpTEoKt7-_QWgZPqWI4f30RdkKxCr28/view?usp=sharing">tài liệu này</a> nhé.
+Và tùy vào ngôn ngữ thì chúng ta implement <strong>external service</strong> để gọi API này cho phù hợp.
+Nếu thành công, url sẽ được gửi về trong object response.</p>
+<h3 id="23-giao-diện-edit-card">2.3 Giao diện edit card</h3>
+<p>example url:</p>
+<p><a href="https://stg.link.mul-pay.jp/v2/plus/tshop00048001/member/96942eeac78906a6b9edaa9db6724dbd3ad928dbf7ccb18ee855880cb42a269a">https://stg.link.mul-pay.jp/v2/plus/tshop00048001/member/96942eeac78906a6b9edaa9db6724dbd3ad928dbf7ccb18ee855880cb42a269a</a></p>
+<p>Chúng ta nhúng url này vào website, khi người dùng request add card thì tiến hành redirect tới url trên và kết quả nhận được như sau:
+<img src="https://images.viblo.asia/e4892918-6579-4492-ba73-f5804a35151f.png" alt=""></p>
+<h2 id="3-chức-năng-thanh-toán">3. Chức năng thanh toán</h2>
+<p><img src="https://images.viblo.asia/52a0dcee-6a83-4950-b65b-c51eece86bd7.png" alt="">
+Mô tả luồng hoạt động :</p>
+<ol>
+<li>Người dùng mua hàng, đi đến màn hình thành toán, chọn thanh toán.</li>
+<li>Website chuyển hướng người dùng đến URL thanh toán của GMO.</li>
+<li>Người dùng nhập thông tin thanh toán và nhấn xác nhận thanh toán trên site GMO.</li>
+<li>GMO gửi thông báo transaction về cho site của shop.</li>
+<li>GMO hiển thị màn hình thanh toán thành công cho người dùng.</li>
+<li>Người dùng nhấn nút quay về trên site GMO, và được chuyển hướng về website của shop.</li>
+</ol>
+<p>Cũng giống như luồng chỉnh sửa thẻ (card) thì luồng thanh toán chúng ta cũng chỉ cần tạo được url để chuyển hướng đến màn hình thanh toán của GMO, và cũng có 2 cách để chúng ta có thể có được url này.</p>
+<h3 id="31-tạo-url-thanh-toán-theo-định-dạng-mà-gmo-quy-định">3.1 Tạo URL thanh toán theo định dạng mà GMO quy định.</h3>
+<p>Format của URL thanh toán :
+<img src="https://images.viblo.asia/b36f2478-95e8-451d-aa62-360710db110c.png" alt=""></p>
+<ol>
+<li>Giao thức https (http không khả dụng)</li>
+<li>Domain GMO: Môi trường production: link.mul-pay.jp. Môi trường test: stg.link.mul-pay.jp</li>
+<li>Version.</li>
+<li>Tên của loại thanh toán Gmo plus.</li>
+<li>shopId. (ID cửa hàng của cửa hàng thành viên).</li>
+<li>Loại chức năng. Chỉ định &quot;checkout&quot; cho biết chức năng thanh toán.</li>
+<li>Bộ tham số được mã hóa base64 + mã băm của nó. ( chi tiết mình sẽ mô tả sau).</li>
+</ol>
+<p>Các bước để tạo bộ tham số mã hóa base64 và mã băm (7).
+<img src="https://images.viblo.asia/4996e807-003e-4b72-be33-bf426c3451ff.png" alt="">
+Giống như việc tạo ra url edit card chúng ta có đoạn code example bằng java sau:
+{@embed: <a href="https://gist.github.com/tungpv-0974/def5dad58a493d84a0b0024837232490%7D">https://gist.github.com/tungpv-0974/def5dad58a493d84a0b0024837232490}</a></p>
+<p>Bộ tham số cho việc thanh toán các bạn có thể đọc mục <strong>4.5.1 trang 40</strong>  <a href="https://drive.google.com/file/d/1gcpTEoKt7-_QWgZPqWI4f30RdkKxCr28/view?usp=sharing">tài liệu này</a> nhé.</p>
+<h3 id="32-api-get-url-payment-do-gmo-cung-cấp">3.2 API get URL payment do GMO cung cấp.</h3>
+<p>GMO sẽ cung cấp cho chúng ta đầu API sau để get URL payment :  <strong>[POST]https://[gmo-url]/payment/GetLinkplusUrlPayment.json</strong></p>
+<p>[gmo-url] là thông tin được gửi về trong email lúc chúng ta đăng ký với GMO, xem thêm bài viết  <a href="https://viblo.asia/p/tim-hieu-ve-cong-thanh-toan-gmo-3P0lPvMpKox">Tìm hiểu về cổng thanh toán GMO</a> của tác giả <a href="https://viblo.asia/u/trantrinh1102">Tran Cong Trinh</a>.</p>
+<p>example: <a href="https://kt01.mul-pay.jp/payment/GetLinkplusUrlPayment.json">https://kt01.mul-pay.jp/payment/GetLinkplusUrlPayment.json</a></p>
+<p>Khi chúng ta gọi API này thành công, sẽ nhận được một URL có format như sau:</p>
+<p><img src="https://images.viblo.asia/81e34a84-dc4f-47b6-868c-030425dfac94.png" alt=""></p>
+<p>Chỉ khác với format URL mà chúng ta tự tạo ở phần 3.1 là nó được chỉ định version là v2. và (7) là một API key chứ không còn là bộ tham số được mã hóa base64 + hash nữa.
+Mình có một đoạn CURL cho việc lấy url thanh toán bằng hình thức credit card như sau:</p>
+<pre><code>curl --location --request POST 'https://kt01.mul-pay.jp/payment/GetLinkplusUrlPayment.json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    &quot;configid&quot;: &quot;001&quot;,
+    &quot;geturlparam&quot;: {
+        &quot;ShopID&quot;: &quot;tshop00001111&quot;,
+        &quot;ShopPass&quot;: &quot;shopPass&quot;
+    },
+    &quot;transaction&quot;: {
+        &quot;OrderID&quot;: &quot;0001OR123456&quot;,
+        &quot;Amount&quot;: 200,
+        &quot;Tax&quot;: 10,
+        &quot;PayMethods&quot;: [
+            &quot;credit&quot;
+        ]
+    },
+    &quot;credit&quot;: {
+        &quot;JobCd&quot;: &quot;CAPTURE&quot;,
+        &quot;Method&quot;: &quot;1&quot;,
+        &quot;TdFlag&quot;: &quot;1&quot;,
+        &quot;Tds2Type&quot;: &quot;1&quot;,
+        &quot;MemberID&quot;: &quot;1234567&quot;
+    }
+}'
+</code></pre><p>Các tham số chi tiết các bạn đọc ở mục <strong>4.5.1 trang 40</strong>  <a href="https://drive.google.com/file/d/1gcpTEoKt7-_QWgZPqWI4f30RdkKxCr28/view?usp=sharing">tài liệu này</a> nhé.
+Và tùy vào ngôn ngữ thì chúng ta implement <strong>external service</strong> để gọi API này cho phù hợp.
+Nếu thành công, url sẽ được gửi về trong object response.</p>
+<h3 id="33-giao-diện-thanh-toán">3.3 Giao diện thanh toán</h3>
+<p>example url:</p>
+<p><a href="https://stg.link.mul-pay.jp/v2/plus/tshop00048001/checkout/542f23990a856230d497fe668ab0eef95020a076e5b30a0b7038b603bba72e96">https://stg.link.mul-pay.jp/v2/plus/tshop00048001/checkout/542f23990a856230d497fe668ab0eef95020a076e5b30a0b7038b603bba72e96</a></p>
+<p>Chúng ta nhúng url này vào website, khi người dùng request add card thì tiến hành redirect tới url trên và kết quả nhận được như sau:
+<img src="https://images.viblo.asia/346b6c30-4044-4b21-8297-f62324d68d66.png" alt=""></p>
+<h2 id="4-kết-luận">4. KẾT LUẬN</h2>
+<blockquote>
+<p>Vậy, để có thể triển khai loại kết nối Link type của GMO( hay còn gọi là GMO plus) thì mấu chốt chúng ta cần tạo ra hoặc lấy được url để nhúng vào website của shop.
+Khi người dùng yêu cầu chỉnh sửa thẻ hay thanh toán thì điều hướng đến url đấy. Những việc còn lại sẽ do phía GMO xử lý, nên thông tin người dùng được xử lý và lưu trữ bên phía GMO mà không qua bất kỳ bên trung gian nào. Nâng cao độ an toàn về giao dịch và thông tin của người dùng. Vì vậy loại hình này đang được sử dụng nhiều và thay thế cho cách làm cũ, tuy nhiên tài liệu tiếng Việt không có.</p>
+</blockquote>
+<blockquote>
+<p>Trong quá trình làm dự án mình có tìm hiểu tài liệu <a href="https://drive.google.com/file/d/1gcpTEoKt7-_QWgZPqWI4f30RdkKxCr28/view?usp=sharing">GMO plus</a> và chia sẻ lại ở bài viết này những gì mình đã làm. Vậy nên không tránh việc có thể thiếu sót. Mong mọi người góp ý để mình hoàn thiện hơn.
+Thanks!</p>
+</blockquote>
+
+                    </div>
+                    
+                        <div style="text-align: left; margin: 60px 0px 40px 8px; border-radius: 6px;">
+    <ul class="post_tags" style="margin: 0px; padding: 0px 0px 15px; width: 100%;">
+    	<li class="cat-real" style="display: inline-block; color: rgb(102, 102, 102); font-size: 1.1rem; font-weight: 600; margin: 0px; letter-spacing: 1px;">
+            <a style="background-color: rgb(231, 243, 255); color: rgb(47, 148, 254); padding: 1px 12px; border-radius: 4px; font-size: 0.9rem;">Tags</a>
+        </li>
+        
+            <li class="cat-real" style="display: inline-block;">
+                <a href="https://tungpv98.github.io/tags/gmo-payment-gateway/" style="font-size: 0.9rem; border-radius: 4px; padding: 1px 12px;">gmo payment gateway</a>
+            </li>
+        
+            <li class="cat-real" style="display: inline-block;">
+                <a href="https://tungpv98.github.io/tags/gmo-plus/" style="font-size: 0.9rem; border-radius: 4px; padding: 1px 12px;">gmo plus</a>
+            </li>
+        
+            <li class="cat-real" style="display: inline-block;">
+                <a href="https://tungpv98.github.io/tags/thanh-to%C3%A1n-online/" style="font-size: 0.9rem; border-radius: 4px; padding: 1px 12px;">Thanh toán online</a>
+            </li>
+        
+    </ul>
+</div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+    <div>
+    <a href="" target="_blank" style="text-decoration:none">
+        <div class="goup-container footer-github">
+            <i class="ri-github-fill footer-github-icon"></i>
+        </div>
+    </a>
+    <div class="footer reveal">
+        
+            <p>
+                Copyright&nbsp;<i class="ri-copyright-line"></i>&nbsp;·&nbsp;2021&nbsp;·&nbsp;gnuT_98
+            </p>
+        
+    </div>
+</div>
+
+
+    <script src="/js/jquery.min.js"></script><script src="/js/tony.min.21fb28b08edccb7a220a2a53f8fa67ba2f62588d04437e5a3998769b79537006.js" integrity="sha256-IfsosI7cy3oiCipT+Ppnui9iWI0EQ35aOZh2m3lTcAY="></script><script src="/js/medium-zoom.min.js"></script>
+<script>
+	mediumZoom(document.querySelectorAll('div.article-content img'), {
+        background: '#fff'
+    });
+</script>
+
+
+    
+<script>
+(function(){
+	var bp = document.createElement('script');
+	var curProtocol = window.location.protocol.split(':')[0];
+	if (curProtocol === 'https'){
+	 bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	}
+	else{
+	bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	}
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+</html>

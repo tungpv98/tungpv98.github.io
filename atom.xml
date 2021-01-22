@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Tung&#39;s Blog</title>
     <subtitle type="html"></subtitle>
-    <updated>2021-01-22T08:29:47+07:00</updated>
+    <updated>2021-01-22T08:41:53+07:00</updated>
     <id>https://tungpv98.github.io/</id>
     <link rel="alternate" type="text/html" href="https://tungpv98.github.io/" />
     <link rel="self" type="application/atom+xml" href="https://tungpv98.github.io/atom.xml" />
@@ -15,6 +15,48 @@
                 <email>tungpv98@gmail.com</email>
             </author>
     <generator uri="https://gohugo.io/" version="0.68.3">Hugo</generator>
+        
+            
+            <entry>
+                <title type="text">GMO Payment Gateway Plus (Link type Connection)</title>
+                <link rel="alternate" type="text/html" href="https://tungpv98.github.io/posts/gmo-payment-gateway-plus-link-type-connection/" />
+                <id>https://tungpv98.github.io/posts/gmo-payment-gateway-plus-link-type-connection/</id>
+                <updated>2021-01-22T08:40:36+07:00</updated>
+                <published>2021-01-22T08:40:36+07:00</published><summary type="html"><![CDATA[%!s(<nil>)]]></summary>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category scheme="https://tungpv98.github.io/tags/thanh-to%C3%A1n-online/" term="Thanh toán online" label="Thanh toán online" />
+                                
+                           
+                                
+                                
+                                
+                                    <category scheme="https://tungpv98.github.io/tags/gmo-plus/" term="gmo plus" label="gmo plus" />
+                                
+                           
+                                
+                                
+                                
+                                    <category scheme="https://tungpv98.github.io/tags/gmo-payment-gateway/" term="gmo payment gateway" label="gmo payment gateway" />
+                                
+                           
+                        
+                    
+                
+            </entry>
+        
+    
         
             
             <entry>
